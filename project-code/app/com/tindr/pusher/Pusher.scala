@@ -6,7 +6,8 @@ import play.api.Play.current
 import play.api.UnexpectedException
 import play.api.UnexpectedException
 import play.api.libs.ws.WS
-import play.api.libs.concurrent.Promise
+import play.api.libs.concurrent._
+import scala.concurrent.Future
 import play.api.libs.ws.Response
 import play.api.libs.json.Json.toJson
 import json.JSONAuthDataWriter
@@ -21,7 +22,7 @@ case class Pusher(private val appId: String, private val key: String, private va
 	/**
 	 * Triggers an event on a channel and delivers a message to all the channel suscribers.
 	 */
-	def trigger(channel: String, event: String, message: String): Option[Promise[Response]] = trigger(channel, event, message, None)
+	def trigger(channel: String, event: String, message: String): Option[Future[Response]] = trigger(channel, event, message, None)
 
 	/**
 	 * Triggers an event on a channel and delivers a message to all the channel suscribers

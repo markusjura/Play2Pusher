@@ -1,22 +1,20 @@
-h1. Pusher module for Play! 2
+h1. Pusher module for Play! 2.1
 
 This module lets you easily interact with the "Pusher Service":http://www.pusher.com within your "Play 2":http://playframework.com application.
 
 h2. Installation
 
-To use this module on your Play 2 application, you need to modify your @Build.scala@ file:
+To use this module on your Play 2.1 application, you need to modify your @Build.scala@ file:
 
 <pre>
 val appDependencies = Seq(
   (... your other dependencies, if any ...)
-  "tindr" % "play2pusher_2.9.1" % "1.0.1" // Tindr's play2pusher module dependency
+  "tindr" %% "play2pusher" % "1.1" // Tindr's play2pusher module dependency
 )
 
 val main = PlayProject(appName, appVersion, appDependencies, mainLang = SCALA).settings( 
   (... your other settings, if any ...)
-  resolvers += Resolver.url("Tindr's Play module repository", 
-    url("http://tindr.github.com/releases/"))
-    (Resolver.ivyStylePatterns)
+  resolvers += Resolver.url("Markus Jura github repo play2pusher", url("http://markusjura.github.com/Play2Pusher"))(Resolver.ivyStylePatterns)
 )
 </pre>
 

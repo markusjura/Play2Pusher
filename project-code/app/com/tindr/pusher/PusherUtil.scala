@@ -26,7 +26,7 @@ object PusherUtil {
 			val digest = md.digest(bytesOfMessage)
 			Some(byteArrayToString(digest))
 		} catch {
-			case t => {
+			case t: Throwable => {
 				Logger.error("Error calculating md5", t)
 				None
 			}
@@ -46,7 +46,7 @@ object PusherUtil {
 			Some(String.format("%0" + (digest.length << 1) + "x", bigInteger))
 
 		} catch {
-			case t => {
+			case t: Throwable => {
 				Logger.error("Error calculating SHA256", t)
 				None
 			}
